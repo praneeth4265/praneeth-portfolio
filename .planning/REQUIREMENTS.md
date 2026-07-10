@@ -34,10 +34,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **PROJ-01**: Visitor sees all projects displayed in a MagicBento grid layout
 - [x] **PROJ-02**: Visitor can hover/interact with project cards showing TiltedCard 3D effect
-- [ ] **PROJ-03**: Visitor can click a project card to navigate to a dedicated project detail page
-- [ ] **PROJ-04**: Project detail page shows campaign metrics, creative samples, strategy narrative, and technical marketing details
+- [x] **PROJ-03**: Visitor can click a project card to navigate to a dedicated project detail page
+- [x] **PROJ-04**: Project detail page shows campaign metrics, creative samples, strategy narrative, and technical marketing details
 - [x] **PROJ-05**: Projects are loaded dynamically from a TypeScript data file (add/remove without code changes)
-- [ ] **PROJ-06**: Visitor can navigate back from project detail to home without losing scroll position
+- [x] **PROJ-06**: Visitor can navigate back from project detail to home without losing scroll position
 
 ### Skills
 

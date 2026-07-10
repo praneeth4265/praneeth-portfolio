@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { Container } from '@/components/ui/Container';
 import { MagicBentoGrid, MagicBentoItem } from '@/components/reactbits/cards/MagicBento';
@@ -95,13 +96,13 @@ export const ProjectsSection: React.FC = () => {
                       </p>
                     </div>
 
-                    <a
-                      href={project.liveUrl || `#${project.slug}`}
+                    <Link
+                      to={`/projects/${project.slug}`}
                       className="w-10 h-10 rounded-full bg-white/10 hover:bg-cyan-500 text-white flex items-center justify-center transition-all duration-300 shrink-0 shadow-md group-hover:scale-110"
                       aria-label={`View details for ${project.title}`}
                     >
                       <ArrowUpRight size={18} />
-                    </a>
+                    </Link>
                   </div>
 
                   {/* Middle Summary & Tech Stack */}
@@ -142,10 +143,13 @@ export const ProjectsSection: React.FC = () => {
                       ))}
                     </div>
 
-                    <div className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-300 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-300 uppercase tracking-wider group-hover:text-cyan-400 transition-colors"
+                    >
                       <span>Explore Case Study</span>
                       <ArrowUpRight size={13} />
-                    </div>
+                    </Link>
                   </div>
                 </TiltedCard>
               </MagicBentoItem>

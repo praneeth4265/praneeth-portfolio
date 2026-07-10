@@ -10,7 +10,7 @@
 |-------|------|--------|
 | 1 | Foundation + Hero + Navigation | Complete |
 | 2 | Content Sections + Interactivity | Complete |
-| 3 | Detail Pages + Global Polish | Not Started |
+| 3 | Detail Pages + Global Polish | Complete |
 
 ---
 
