@@ -6,15 +6,10 @@ export interface SkillItem {
 }
 
 export const skillsData: SkillItem[] = [
-  // Technical & CS (AI/ML & Full Stack Engineering)
-  { name: "Python / Data Scripting", category: "Technical & CS", level: 94, highlighted: true },
-  { name: "TensorFlow & PyTorch (AI/ML)", category: "Technical & CS", level: 90, highlighted: true },
-  { name: "Generative AI & LLM Automation", category: "Technical & CS", level: 96, highlighted: true },
-  { name: "React, Next.js & Tailwind CSS", category: "Technical & CS", level: 88, highlighted: true },
-  { name: "REST APIs & Backend Integration", category: "Technical & CS", level: 92 },
-  { name: "SQL & BigQuery Database Mgmt", category: "Technical & CS", level: 86 },
-  { name: "Docker, Linux & CI/CD Pipelines", category: "Technical & CS", level: 84 },
-  { name: "Programmatic SEO & Tech Audits", category: "Technical & CS", level: 95, highlighted: true },
+  // Technical & CS (Full Stack Engineering)
+  { name: "Full Stack Development (React, Next.js, Node, Tailwind)", category: "Technical & CS", level: 94, highlighted: true },
+  { name: "REST APIs & Backend Integration", category: "Technical & CS", level: 90 },
+  { name: "Programmatic SEO & Technical Site Audits", category: "Technical & CS", level: 95, highlighted: true },
 
   // Marketing Strategy & Performance
   { name: "Omnichannel Performance Ads (Google, Meta, LinkedIn)", category: "Marketing Strategy", level: 96, highlighted: true },

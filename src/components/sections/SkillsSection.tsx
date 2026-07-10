@@ -11,7 +11,7 @@ export const SkillsSection: React.FC = () => {
 
   const categories = [
     { id: 'All', label: 'All Capabilities', icon: Sparkles },
-    { id: 'Technical & CS', label: 'Technical & AI/ML', icon: Terminal },
+    { id: 'Technical & CS', label: 'Technical & Full Stack', icon: Terminal },
     { id: 'Marketing Strategy', label: 'Marketing Strategy', icon: Lightbulb },
     { id: 'Analytics & Data', label: 'Analytics & Attribution', icon: BarChart3 },
     { id: 'Creative & UX', label: 'Creative & UX Engineering', icon: Cpu },
@@ -34,7 +34,7 @@ export const SkillsSection: React.FC = () => {
             The Growth Engineer Stack.
           </h2>
           <p className="text-base md:text-lg text-muted-foreground">
-            A potent combination of 60+ digital marketing tools and advanced computer science (AI/ML) engineering frameworks.
+            A potent combination of 60+ digital marketing tools and modern full stack development capabilities.
           </p>
         </div>
 
