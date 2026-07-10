@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: var(--primary);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+}
+
 @layer base {
   :root {
     --bg-dark: #0A0A0E;
@@ -14,9 +24,25 @@
     --text-light-primary: #0F172A;
     --text-light-secondary: #475569;
 
-    --accent-neon: #00F0FF;
-    --accent-violet: #8B5CF6;
-    --accent-emerald: #10B981;
+    /* Semantic tokens for light sections (`theme="light"`) */
+    --primary: #00F0FF;
+    --foreground: #0F172A;
+    --muted-foreground: #475569;
+    --card: #FFFFFF;
+    --border: rgba(15, 23, 42, 0.12);
+    --muted: rgba(15, 23, 42, 0.06);
+    --accent: #00F0FF;
+  }
+
+  .dark {
+    /* Semantic tokens for dark sections (`theme="dark"`) */
+    --primary: #00F0FF;
+    --foreground: #F3F4F6;
+    --muted-foreground: #9CA3AF;
+    --card: #12121A;
+    --border: rgba(255, 255, 255, 0.12);
+    --muted: rgba(255, 255, 255, 0.06);
+    --accent: #00F0FF;
   }
 
   body {

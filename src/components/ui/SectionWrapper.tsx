@@ -24,7 +24,7 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
       className={clsx(
         "relative w-full py-24 md:py-32 transition-colors duration-700 ease-in-out overflow-hidden",
         isDark 
-          ? "bg-[#0A0A0E] text-[#F3F4F6]" 
+          ? "dark bg-[#0A0A0E] text-[#F3F4F6]" 
           : "bg-[#F8FAFC] text-[#0F172A]",
         className
       )}

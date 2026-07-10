@@ -28,7 +28,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
 
   return (
     <div className={`relative w-full max-w-4xl mx-auto ${className}`}>
-      <div className="relative h-[340px] md:h-[280px] flex items-center justify-center">
+      <div className="relative h-[440px] sm:h-[380px] md:h-[340px] flex items-center justify-center">
         <AnimatePresence mode="popLayout">
           {items.map((item, index) => {
             const offset = (index - activeIndex + items.length) % items.length;
@@ -71,7 +71,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
                   stiffness: 260,
                   damping: 25,
                 }}
-                className="absolute inset-0 w-full p-6 md:p-8 rounded-2xl bg-card border border-border/60 shadow-xl flex flex-col justify-between"
+                className="absolute inset-0 w-full p-6 md:p-8 rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl flex flex-col justify-between overflow-y-auto sm:overflow-hidden text-white"
               >
                 {item.content}
               </motion.div>

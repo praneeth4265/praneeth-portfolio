@@ -49,11 +49,11 @@ export const SkillsSection: React.FC = () => {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold transition-all duration-300 ${
                   isActive
-                    ? 'bg-primary text-white shadow-xl shadow-primary/25 scale-105'
-                    : 'bg-card border border-border/80 text-muted-foreground hover:text-foreground hover:border-primary/40'
+                    ? 'bg-cyan-500 text-white shadow-xl shadow-cyan-500/25 scale-105'
+                    : 'bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-cyan-400'
                 }`}
               >
-                <Icon size={16} className={isActive ? 'text-white' : 'text-primary'} />
+                <Icon size={16} className={isActive ? 'text-white' : 'text-cyan-500'} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -75,26 +75,26 @@ export const SkillsSection: React.FC = () => {
               key={skill.name}
               className={`p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
                 skill.highlighted
-                  ? 'bg-gradient-to-br from-primary/5 via-card to-purple-500/5 border-primary/40 shadow-md shadow-primary/5'
-                  : 'bg-card border-border/70 hover:border-border'
+                  ? 'bg-gradient-to-br from-cyan-500/5 via-white to-purple-500/5 border-cyan-500/40 shadow-md shadow-cyan-500/5'
+                  : 'bg-white border-slate-200 hover:border-slate-300 shadow-sm'
               }`}
             >
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary px-2 py-0.5 rounded bg-primary/10">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-600 px-2 py-0.5 rounded bg-cyan-500/10">
                     {skill.category}
                   </span>
-                  <h3 className="text-base font-bold text-foreground mt-2">
+                  <h3 className="text-base font-bold text-slate-900 mt-2">
                     {skill.name}
                   </h3>
                 </div>
-                <span className="text-sm font-black font-mono text-primary">
+                <span className="text-sm font-black font-mono text-cyan-600">
                   {skill.level}%
                 </span>
               </div>
 
               {/* Progress Bar */}
-              <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+              <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
