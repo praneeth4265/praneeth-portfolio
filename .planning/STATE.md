@@ -5,19 +5,19 @@
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** The portfolio must feel like an experience, not a webpage
-**Current focus:** Phase 1 — Foundation + Hero + Navigation
+**Current focus:** Phase 2 — Content Sections + Interactivity
 
 ## Current Phase
 
-**Phase:** 1
-**Name:** Foundation + Hero + Navigation
-**Status:** Not Started
+**Phase:** 2
+**Name:** Content Sections + Interactivity
+**Status:** Ready to Plan
 **Started:** —
 **Completed:** —
 
 ## Phase History
 
-*(None yet)*
+- **Phase 1: Foundation + Hero + Navigation** — Completed 2026-07-10 (`1df143a`)
 
 ## Active Decisions
 
