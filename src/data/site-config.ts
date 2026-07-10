@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
   location: "Hyderabad, Telangana, India",
   email: "iiampraneeth@gmail.com",
   phone: "+91 8367399099",
-  avatarUrl: "<PLACEHOLDER_AVATAR_URL>",
+  avatarUrl: "/avatar.jpg",
   roles: [
     "Digital Marketing Strategist",
     "AI/ML Engineer",

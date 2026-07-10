@@ -44,13 +44,25 @@ export const HeroSection: React.FC = () => {
           {/* Top Pill Badge */}
           <motion.div 
             variants={fadeInUp}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 shadow-lg shadow-[#00F0FF]/5"
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-lg shadow-[#00F0FF]/5"
           >
             <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse" />
             <span className="text-xs font-mono uppercase tracking-widest text-gray-300 flex items-center gap-1.5">
               <Terminal size={13} className="text-[#00F0FF]" />
               Engineered Compulsion & Growth
             </span>
+          </motion.div>
+
+          {/* Profile Portrait Badge */}
+          <motion.div variants={fadeInUp} className="mb-5">
+            <div className="relative p-1 rounded-full bg-gradient-to-tr from-cyan-500 via-purple-500 to-emerald-500 shadow-2xl shadow-cyan-500/20 group cursor-pointer">
+              <img
+                src={siteConfig.avatarUrl}
+                alt={siteConfig.name}
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-slate-950 group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-slate-950 animate-pulse" title="Available for work" />
+            </div>
           </motion.div>
 
           {/* Main Name Heading with ScrambledText Reveal */}

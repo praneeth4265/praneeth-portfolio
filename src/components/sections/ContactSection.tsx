@@ -27,9 +27,20 @@ export const ContactSection: React.FC = () => {
 
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/20 backdrop-blur-md border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider">
-            <Sparkles size={14} />
-            <span>Direct Response Channel</span>
+          <div className="flex flex-col items-center gap-4">
+            <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-500 shadow-xl shadow-cyan-500/20">
+              <img
+                src={siteConfig.avatarUrl}
+                alt={siteConfig.name}
+                className="w-16 h-16 rounded-full object-cover border-2 border-slate-950"
+              />
+              <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-slate-950 animate-pulse" />
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/20 backdrop-blur-md border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+              <Sparkles size={14} />
+              <span>Direct Response Channel</span>
+            </div>
           </div>
 
           {/* Interactive Proximity Headline */}
