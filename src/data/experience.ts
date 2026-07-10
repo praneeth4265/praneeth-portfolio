@@ -11,41 +11,41 @@ export interface ExperienceItem {
 export const experienceData: ExperienceItem[] = [
   {
     id: "exp-1",
-    role: "<PLACEHOLDER_EXP_1_ROLE> Head of Growth & Technical Marketing",
-    company: "<PLACEHOLDER_EXP_1_COMPANY> Apex Scale Labs",
+    role: "Digital Marketing Strategist & Apprentice",
+    company: "Digital Nest School of Business (PGP '26)",
     period: "2024 — Present",
-    location: "Remote / Hybrid",
-    description: "<PLACEHOLDER_EXP_1_DESC> Leading multi-channel performance marketing, growth engineering, and data attribution systems for high-growth DTC & B2B SaaS clients.",
+    location: "Hyderabad, Telangana, India",
+    description: "Architecting full-funnel digital marketing strategies, conversion rate optimization (CRO), and omnichannel performance campaigns.",
     achievements: [
-      "Architected predictive bidding algorithms scaling client ad budgets to $450K/month at profitable ROAS.",
-      "Engineered automated programmatic SEO pipelines capturing 2.4M organic visits annually across client portfolios.",
-      "Managed cross-functional team of data analysts, media buyers, and frontend UX engineers."
+      "Engineered data-driven growth models and automated reporting pipelines integrating GA4 and custom tracking scripts.",
+      "Optimized landing page UX and conversion funnels leveraging neuromarketing and Fitts's Law principles.",
+      "<PLACEHOLDER_EXP_1_ACHIEVEMENT> Managed and scaled performance ad campaigns across Meta and Google Ads ecosystems."
     ]
   },
   {
     id: "exp-2",
-    role: "<PLACEHOLDER_EXP_2_ROLE> Senior Performance Growth Engineer",
-    company: "<PLACEHOLDER_EXP_2_COMPANY> Conversion Matrix Inc.",
-    period: "2022 — 2024",
-    location: "San Francisco, CA (Remote)",
-    description: "<PLACEHOLDER_EXP_2_DESC> Bridged computer science engineering with full-funnel digital marketing to optimize conversion rates and automated retention loops.",
+    role: "AI/ML Engineer & Full Stack Developer (B.E.)",
+    company: "Chaitanya Bharathi Institute of Technology (CBIT)",
+    period: "Nov 2022 — May 2026",
+    location: "Hyderabad, Telangana, India",
+    description: "Pursuing Bachelor of Engineering in Computer Science (AI & ML), translating complex algorithmic concepts into practical high-performance software systems.",
     achievements: [
-      "Redesigned core landing page experiences, driving +165% conversion rate lift via cognitive compulsion UI patterns.",
-      "Built custom GA4 + BigQuery multi-touch attribution models replacing inaccurate last-click tracking.",
-      "Created automated creative testing workflows using Python script automation."
+      "Designed a computer vision pipeline using ensemble deep learning (TensorFlow, PyTorch, OpenCV) for robust medical imaging diagnostic workflows.",
+      "Architected an algorithmic bus scheduling optimization system with secure role-based access and REST API integration.",
+      "Earned Oracle Cloud Infrastructure 2025 AI Foundations Associate and HackerRank Software Engineer Intern Role certifications."
     ]
   },
   {
     id: "exp-3",
-    role: "<PLACEHOLDER_EXP_3_ROLE> Digital Marketing Strategist & Analyst",
-    company: "<PLACEHOLDER_EXP_3_COMPANY> Nexus Brand Collective",
-    period: "2020 — 2022",
-    location: "New York, NY",
-    description: "<PLACEHOLDER_EXP_3_DESC> Managed paid search, social media acquisition, and technical SEO audits while pursuing postgraduate Digital Marketing studies.",
+    role: "Events Head & Technical Coordinator",
+    company: "NeuralNexus Club, CBIT",
+    period: "2023 — 2025",
+    location: "Hyderabad, Telangana, India",
+    description: "Spearheaded technical and AI-focused campus initiatives, bridging leadership with practical tech execution.",
     achievements: [
-      "Consistently beat CAC targets by over 30% through rigorous audience segmentation and ad copy split testing.",
-      "Led end-to-end technical SEO migrations for 14 enterprise websites with zero traffic loss.",
-      "Developed interactive client reporting dashboards using Looker Studio and custom SQL connectors."
+      "Led end-to-end execution of high-impact AI workshops, hackathons, and technical symposiums.",
+      "Directed cross-functional student engineering teams and stakeholder communications.",
+      "<PLACEHOLDER_EXP_3_ACHIEVEMENT> Orchestrated cross-disciplinary workshops combining tech innovation with strategic marketing outreach."
     ]
   }
 ];

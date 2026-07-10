@@ -9,7 +9,7 @@
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Foundation + Hero + Navigation | Complete |
-| 2 | Content Sections + Interactivity | Not Started |
+| 2 | Content Sections + Interactivity | Complete |
 | 3 | Detail Pages + Global Polish | Not Started |
 
 ---
