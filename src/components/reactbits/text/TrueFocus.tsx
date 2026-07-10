@@ -26,14 +26,14 @@ export const TrueFocus: React.FC<TrueFocusProps> = ({
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <div className={`relative flex flex-wrap items-center gap-3 py-2 ${className}`}>
+    <div className={`relative flex flex-wrap items-center gap-2.5 sm:gap-3.5 py-2 ${className}`}>
       {sentence.map((word, index) => {
         const isFocused = currentIndex === index;
 
         return (
           <div
             key={index}
-            className="relative cursor-pointer select-none px-3 py-1 rounded-lg transition-colors duration-300"
+            className="relative cursor-pointer select-none px-3.5 py-1.5 rounded-xl transition-all duration-300 flex items-center"
             onMouseEnter={() => setCurrentIndex(index)}
             onMouseLeave={() => {
               if (!manualMode && index === currentIndex) {
@@ -42,10 +42,10 @@ export const TrueFocus: React.FC<TrueFocusProps> = ({
             }}
           >
             <span
-              className={`relative z-10 text-2xl md:text-3xl font-extrabold tracking-tight transition-all duration-300 ${
+              className={`relative z-10 text-lg sm:text-xl md:text-2xl font-black tracking-tight transition-all duration-300 ${
                 isFocused
-                  ? 'text-foreground scale-105'
-                  : 'text-muted-foreground/60'
+                  ? 'text-slate-900 scale-102 font-black'
+                  : 'text-slate-400 hover:text-slate-600'
               }`}
               style={{
                 filter:
@@ -62,21 +62,21 @@ export const TrueFocus: React.FC<TrueFocusProps> = ({
                 layoutId="true-focus-box"
                 transition={{
                   type: 'spring',
-                  stiffness: 300,
-                  damping: 25,
+                  stiffness: 350,
+                  damping: 30,
                   duration: animationDuration,
                 }}
-                className="absolute inset-0 z-0 rounded-lg border-2 pointer-events-none"
+                className="absolute inset-0 z-0 rounded-xl border-2 pointer-events-none"
                 style={{
                   borderColor,
-                  boxShadow: `0 0 15px ${glowColor}, inset 0 0 10px ${glowColor}`,
-                  backgroundColor: 'rgba(0, 240, 255, 0.05)',
+                  boxShadow: `0 4px 12px ${glowColor}, inset 0 0 12px ${glowColor}`,
+                  backgroundColor: 'rgba(6, 182, 212, 0.06)',
                 }}
               />
             )}
             {isFocused && prefersReducedMotion && (
               <div
-                className="absolute inset-0 z-0 rounded-lg border-2 pointer-events-none"
+                className="absolute inset-0 z-0 rounded-xl border-2 pointer-events-none bg-cyan-500/5"
                 style={{ borderColor }}
               />
             )}
