@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import type { FC, MutableRefObject } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { mat4, quat, vec2, vec3 } from 'gl-matrix';
 
 const discVertShaderSource = `#version 300 es
@@ -1126,6 +1127,7 @@ export interface InfiniteMenuProps {
 export type { MenuItem as InfiniteMenuItem, MenuItem };
 
 export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 }) => {
+  const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement | null>(null) as MutableRefObject<HTMLCanvasElement | null>;
   const [activeItem, setActiveItem] = useState<MenuItem | null>(null);
   const [isMoving, setIsMoving] = useState<boolean>(false);
@@ -1170,7 +1172,7 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
     if (activeItem.link.startsWith('http')) {
       window.open(activeItem.link, '_blank');
     } else {
-      console.log('Internal route:', activeItem.link);
+      navigate(activeItem.link);
     }
   };
 
