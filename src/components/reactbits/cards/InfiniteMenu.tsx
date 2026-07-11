@@ -1192,65 +1192,78 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
 
       {activeItem && (
         <>
-          <h2
-            className={`
-          select-none
-          absolute
-          font-black
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-          leading-tight
-          max-w-[35vw] sm:max-w-[40vw]
-          break-words
-          left-[1.6em]
-          top-1/2
-          transform
-          translate-x-[20%]
-          -translate-y-1/2
-          transition-all
-          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          text-[#09090F]
-          drop-shadow-sm
-          ${
-            isMoving
-              ? 'opacity-0 pointer-events-none duration-[100ms]'
-              : 'opacity-100 pointer-events-auto duration-[500ms]'
-          }
-        `}
-          >
-            {activeItem.title}
-          </h2>
-
-          <p
-            className={`
-          select-none
-          absolute
-          max-w-[12ch]
-          text-[1.1rem]
-          top-1/2
-          right-[1%]
-          text-[#2D2B4A]
-          font-semibold
-          leading-snug
-          transition-all
-          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          ${
-            isMoving
-              ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2'
-              : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-[-90%] -translate-y-1/2'
-          }
-        `}
-          >
-            {activeItem.description}
-          </p>
-
-          {/* Centered 2-word title displayed outside, below the active center disc */}
+          {/* Left Title Card */}
           <div
-            className="select-none absolute left-1/2 -translate-x-1/2 text-center z-10 bottom-[8.2em] transition-all ease-[cubic-bezier(0.25,0.1,0.25,1.0)] duration-[300ms]"
+            className={`
+              select-none
+              absolute
+              left-[4%]
+              top-1/2
+              -translate-y-1/2
+              z-10
+              bg-white/85
+              backdrop-blur-md
+              border
+              border-[#DDE0F0]
+              rounded-2xl
+              p-5
+              shadow-lg
+              max-w-[260px]
+              sm:max-w-[320px]
+              transition-all
+              ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+              ${
+                isMoving
+                  ? 'opacity-0 scale-95 pointer-events-none duration-[150ms]'
+                  : 'opacity-100 scale-100 pointer-events-auto duration-[400ms]'
+              }
+            `}
           >
-            <span className="font-mono tracking-widest text-[10px] font-bold text-[#4F46E5] uppercase block mb-1">
+            <h2 className="font-black text-lg sm:text-xl md:text-2xl text-[#09090F] leading-tight">
+              {activeItem.title}
+            </h2>
+          </div>
+
+          {/* Right Description Card */}
+          <div
+            className={`
+              select-none
+              absolute
+              right-[4%]
+              top-1/2
+              -translate-y-1/2
+              z-10
+              bg-white/85
+              backdrop-blur-md
+              border
+              border-[#DDE0F0]
+              rounded-2xl
+              p-5
+              shadow-lg
+              max-w-[180px]
+              sm:max-w-[220px]
+              transition-all
+              ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+              ${
+                isMoving
+                  ? 'opacity-0 scale-95 pointer-events-none duration-[150ms]'
+                  : 'opacity-100 scale-100 pointer-events-auto duration-[400ms]'
+              }
+            `}
+          >
+            <p className="text-[#2D2B4A] text-xs sm:text-sm font-semibold leading-relaxed">
+              {activeItem.description}
+            </p>
+          </div>
+
+          {/* Centered 2-word title badge displayed below the active center disc */}
+          <div
+            className="select-none absolute left-1/2 -translate-x-1/2 text-center z-10 bottom-[8.2em] transition-all ease-[cubic-bezier(0.25,0.1,0.25,1.0)] duration-[300ms] px-4 py-2 bg-white/90 backdrop-blur-md border border-[#DDE0F0]/65 rounded-xl shadow-md"
+          >
+            <span className="font-mono tracking-widest text-[9px] font-bold text-[#4F46E5] uppercase block mb-0.5">
               Active Project
             </span>
-            <h3 className="font-black text-xl sm:text-2xl text-[#09090F] drop-shadow-sm tracking-wide uppercase whitespace-nowrap">
+            <h3 className="font-black text-xs sm:text-sm text-[#09090F] tracking-wide uppercase whitespace-nowrap">
               {activeItem.title.trim().split(/\s+/).slice(0, 2).join(' ')}
             </h3>
           </div>
