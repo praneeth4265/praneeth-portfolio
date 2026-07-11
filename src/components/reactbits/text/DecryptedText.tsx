@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import clsx from 'clsx';
@@ -18,7 +18,7 @@ export const DecryptedText: React.FC<DecryptedTextProps> = ({
   speed = 45,
   maxIterations = 15,
   className,
-  encryptedClassName = 'text-[#00F0FF]/70 font-mono'
+  encryptedClassName = 'text-[#E8A020]/60 font-mono'
 }) => {
   const [displayText, setDisplayText] = useState('');
   const [revealedCount, setRevealedCount] = useState(0);

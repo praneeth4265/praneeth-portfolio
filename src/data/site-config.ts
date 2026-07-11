@@ -19,19 +19,19 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Praneeth Chintala",
-  title: "Growth Engineer & AI/ML Developer",
-  shortBio: "Digital Marketer (PGP '26, Digital Nest) with a Computer Science Engineering (AI & ML) degree from CBIT, engineering high-converting, cognitively compelling brand experiences.",
-  longBio: "I bridge the gap between advanced computer science engineering and full-funnel digital marketing. Pursuing my B.E. in Computer Science (AI/ML) from CBIT alongside a Postgraduate Program in Digital Marketing from Digital Nest School of Business, I architect predictive data pipelines, high-velocity ad campaigns, programmatic SEO matrices, and conversion funnels designed per neuromarketing principles.",
+  title: "The Marketer Who Codes. The Engineer Who Sells.",
+  shortBio: "Most marketers guess. Most engineers don't care about revenue. I'm the rare intersection — a CS engineer who reads conversion psychology like code, and a growth marketer who ships his own tools.",
+  longBio: "There's a specific kind of problem that breaks most teams: the gap between what the data says and what the campaign actually does. I was born into that gap. Finishing a B.E. in Computer Science (AI/ML) at CBIT while simultaneously completing a Postgraduate in Digital Marketing at Digital Nest — I don't just understand both worlds, I build in both simultaneously. Predictive pipelines that feed your ad targeting. Neuromarketing principles baked into the UX your customers never consciously notice. Conversion funnels that work because they're engineered, not guessed.",
   location: "Hyderabad, Telangana, India",
   email: "iiampraneeth@gmail.com",
   phone: "+91 8367399099",
   avatarUrl: "/avatar.jpg",
   roles: [
-    "Digital Marketing Strategist",
-    "AI/ML Engineer",
-    "Growth & CRO Specialist",
-    "Full Stack Developer",
-    "Technical Marketer"
+    "Precision & Intent",
+    "Code & Conversion",
+    "Data & Human Psychology",
+    "AI & Campaign Science",
+    "Systems & Stories"
   ],
   socials: [
     {
@@ -41,12 +41,12 @@ export const siteConfig: SiteConfig = {
     },
     {
       name: "GitHub",
-      url: "<PLACEHOLDER_GITHUB_URL>",
+      url: "https://github.com/iiampraneeth",
       icon: "Github"
     },
     {
       name: "Twitter/X",
-      url: "<PLACEHOLDER_TWITTER_URL>",
+      url: "https://x.com/iiampraneeth",
       icon: "Twitter"
     },
     {

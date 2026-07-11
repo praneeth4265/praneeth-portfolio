@@ -35,7 +35,7 @@ export const Navigation: React.FC = () => {
 
   return (
     <>
-      {/* Desktop Floating Pill Nav (Gooey/PillNav inspired) */}
+      {/* Desktop Floating Pill Nav */}
       <header 
         className={clsx(
           "fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out hidden md:block",
@@ -44,9 +44,9 @@ export const Navigation: React.FC = () => {
       >
         <nav 
           aria-label="Main Navigation"
-          className="relative flex items-center px-4 py-2 bg-[#12121A]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50"
+          className="relative flex items-center px-3 py-1.5 bg-[#FAFAFF]/92 backdrop-blur-xl border border-[#DDE0F0] rounded-full shadow-lg shadow-[#4F46E5]/8"
         >
-          <ul className="flex items-center space-x-1">
+          <ul className="flex items-center space-x-1 font-mono text-sm">
             {navigationItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -55,17 +55,17 @@ export const Navigation: React.FC = () => {
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={clsx(
-                      "relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full block select-none",
+                      "relative px-4 py-2 transition-colors duration-300 rounded-full block select-none",
                       isActive 
                         ? "text-white font-semibold" 
-                        : "text-gray-400 hover:text-white"
+                        : "text-[#2D2B4A] hover:text-[#09090F]"
                     )}
                   >
                     {/* Animated Pill Background */}
                     {isActive && (
                       <motion.div
                         layoutId="active-pill-bg"
-                        className="absolute inset-0 bg-gradient-to-r from-[#00F0FF]/20 via-[#8B5CF6]/30 to-[#00F0FF]/20 border border-[#00F0FF]/40 rounded-full -z-10 shadow-[0_0_15px_rgba(0,240,255,0.25)]"
+                        className="absolute inset-0 bg-[#4F46E5] rounded-full -z-10 shadow-md shadow-[#4F46E5]/30"
                         transition={{
                           type: "spring",
                           stiffness: 350,
@@ -83,11 +83,11 @@ export const Navigation: React.FC = () => {
       </header>
 
       {/* Mobile Sticky Bar & Hamburger */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#0A0A0E]/85 backdrop-blur-lg border-b border-white/10 md:hidden">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#FAFAFF]/92 backdrop-blur-lg border-b border-[#DDE0F0] md:hidden">
         <a 
           href="#hero" 
           onClick={(e) => handleNavClick(e, '#hero')}
-          className="text-lg font-bold tracking-tighter bg-gradient-to-r from-[#00F0FF] to-[#8B5CF6] bg-clip-text text-transparent"
+          className="text-lg font-bold tracking-tighter text-[#09090F]"
         >
           Compulsion.
         </a>
@@ -95,7 +95,7 @@ export const Navigation: React.FC = () => {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Navigation Menu"
-          className="p-2 text-gray-300 hover:text-white transition-colors focus:outline-none rounded-lg hover:bg-white/5"
+          className="p-2 text-[#2D2B4A] hover:text-[#09090F] transition-colors focus:outline-none rounded-lg hover:bg-[#F2F3FC]"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -109,9 +109,9 @@ export const Navigation: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-x-0 top-[61px] z-40 bg-[#12121A]/95 backdrop-blur-2xl border-b border-white/10 p-6 md:hidden shadow-2xl"
+            className="fixed inset-x-0 top-[61px] z-40 bg-[#F2F3FC]/95 backdrop-blur-2xl border-b border-[#DDE0F0] p-6 md:hidden shadow-2xl"
           >
-            <ul className="flex flex-col space-y-3">
+            <ul className="flex flex-col space-y-3 font-mono">
               {navigationItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
@@ -120,14 +120,14 @@ export const Navigation: React.FC = () => {
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={clsx(
-                        "flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
+                        "flex items-center justify-between px-4 py-3 rounded-xl text-base transition-all duration-200",
                         isActive
-                          ? "bg-gradient-to-r from-[#00F0FF]/15 to-[#8B5CF6]/15 border border-[#00F0FF]/30 text-white font-semibold"
-                          : "text-gray-400 hover:bg-white/5 hover:text-white"
+                          ? "bg-[#4F46E5] text-white font-semibold shadow-md shadow-[#4F46E5]/20"
+                          : "text-[#2D2B4A] hover:bg-[#FAFAFF] hover:text-[#09090F]"
                       )}
                     >
                       <span>{item.label}</span>
-                      {isActive && <div className="w-2 h-2 rounded-full bg-[#00F0FF] shadow-[0_0_8px_#00F0FF]" />}
+                      {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
                     </a>
                   </li>
                 );

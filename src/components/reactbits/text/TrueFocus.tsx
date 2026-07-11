@@ -17,8 +17,8 @@ export const TrueFocus: React.FC<TrueFocusProps> = ({
   sentence,
   manualMode = false,
   blurAmount = 4,
-  borderColor = '#00F0FF',
-  glowColor = 'rgba(0, 240, 255, 0.35)',
+  borderColor = '#4F46E5',
+  glowColor = 'rgba(79, 70, 229, 0.2)',
   animationDuration = 0.5,
   className = '',
 }) => {
@@ -44,8 +44,8 @@ export const TrueFocus: React.FC<TrueFocusProps> = ({
             <span
               className={`relative z-10 text-lg sm:text-xl md:text-2xl font-black tracking-tight transition-all duration-300 ${
                 isFocused
-                  ? 'text-slate-900 scale-102 font-black'
-                  : 'text-slate-400 hover:text-slate-600'
+                  ? 'text-[#0A0908] scale-102 font-black'
+                  : 'text-[#72706A] hover:text-[#38352E]'
               }`}
               style={{
                 filter:
@@ -70,13 +70,13 @@ export const TrueFocus: React.FC<TrueFocusProps> = ({
                 style={{
                   borderColor,
                   boxShadow: `0 4px 12px ${glowColor}, inset 0 0 12px ${glowColor}`,
-                  backgroundColor: 'rgba(6, 182, 212, 0.06)',
+                  backgroundColor: 'rgba(232, 160, 32, 0.04)',
                 }}
               />
             )}
             {isFocused && prefersReducedMotion && (
               <div
-                className="absolute inset-0 z-0 rounded-xl border-2 pointer-events-none bg-cyan-500/5"
+                className="absolute inset-0 z-0 rounded-xl border-2 pointer-events-none bg-[#E8A020]/4"
                 style={{ borderColor }}
               />
             )}

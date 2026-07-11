@@ -60,7 +60,7 @@ export const ScrambledText: React.FC<ScrambledTextProps> = ({
           onComplete?.();
         }
 
-        currentIteration += 1 / 3; // Controls how fast characters resolve relative to scramble speed
+        currentIteration += 1.0; // Controls how fast characters resolve relative to scramble speed
       }, speed);
     };
 

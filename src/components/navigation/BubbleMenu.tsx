@@ -24,9 +24,9 @@ const navItems: NavItem[] = [
   { id: 'hero', label: 'Home', anchor: '/', icon: Home },
   { id: 'about', label: 'About', anchor: '/#about', icon: User },
   { id: 'projects', label: 'Case Studies', anchor: '/#projects', icon: Layers },
-  { id: 'skills', label: 'Tech Stack', anchor: '/#skills', icon: Cpu },
+  { id: 'skills', label: 'Stack', anchor: '/#skills', icon: Cpu },
   { id: 'experience', label: 'Timeline', anchor: '/#experience', icon: Briefcase },
-  { id: 'blog', label: 'Insights', anchor: '/#blog', icon: BookOpen },
+  { id: 'blog', label: 'Writing', anchor: '/#blog', icon: BookOpen },
   { id: 'contact', label: 'Contact', anchor: '/#contact', icon: Mail },
 ];
 
@@ -104,12 +104,12 @@ export const BubbleMenu: React.FC = () => {
         initial={prefersReducedMotion ? false : { y: 60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 350, damping: 25, delay: 0.2 }}
-        className="flex items-center gap-1 sm:gap-1.5 p-2 rounded-full bg-slate-950/85 backdrop-blur-xl border border-slate-800 shadow-2xl shadow-cyan-500/10"
+        className="flex items-center gap-1 sm:gap-1.5 p-2 rounded-full bg-[#FAFAFF]/92 backdrop-blur-xl border border-[#DDE0F0] shadow-2xl shadow-[#4F46E5]/8"
       >
-        {/* Toggle Collapse/Expand Button for mobile compactness if needed */}
+        {/* Toggle Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 flex items-center justify-center transition-colors shrink-0"
+          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#4F46E5]/10 hover:bg-[#4F46E5]/20 text-[#4F46E5] flex items-center justify-center transition-colors shrink-0"
           title={isExpanded ? 'Minimize Navigation' : 'Expand Navigation'}
           aria-label="Toggle Navigation Dock"
         >
@@ -139,22 +139,22 @@ export const BubbleMenu: React.FC = () => {
                     onMouseLeave={() => setHoveredId(null)}
                     className={`relative group flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 shrink-0 ${
                       isActive
-                        ? 'text-white bg-cyan-500/20 border border-cyan-500/40 shadow-sm shadow-cyan-500/20'
-                        : 'text-slate-400 hover:text-white hover:bg-slate-900/80 border border-transparent'
+                        ? 'text-white bg-[#4F46E5] border border-[#4F46E5]/60 shadow-sm shadow-[#4F46E5]/25'
+                        : 'text-[#2D2B4A] hover:text-[#09090F] hover:bg-[#F2F3FC] border border-transparent'
                     }`}
                     aria-label={`Navigate to ${item.label}`}
                   >
                     <Icon
                       size={15}
-                      className={isActive ? 'text-cyan-400 scale-110 transition-transform' : 'text-slate-400 group-hover:text-cyan-400 transition-colors'}
+                      className={isActive ? 'text-white scale-110 transition-transform' : 'text-[#6B6880] group-hover:text-[#4F46E5] transition-colors'}
                     />
 
-                    {/* Label is shown on desktop or when active/hovered */}
+                    {/* Label shown on desktop */}
                     <span className="hidden md:inline font-mono tracking-tight text-xs">
                       {item.label}
                     </span>
 
-                    {/* Tooltip on hover for mobile/tablet when collapsed/icon-only */}
+                    {/* Tooltip on hover for mobile */}
                     <AnimatePresence>
                       {isHovered && (
                         <motion.div
@@ -162,19 +162,19 @@ export const BubbleMenu: React.FC = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 6, scale: 0.9 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg bg-slate-900 border border-cyan-500/40 text-cyan-300 text-[11px] font-bold font-mono uppercase tracking-wider whitespace-nowrap shadow-xl pointer-events-none md:hidden"
+                          className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg bg-[#FAFAFF] border border-[#DDE0F0] text-[#4F46E5] text-[11px] font-bold font-mono uppercase tracking-wider whitespace-nowrap shadow-xl pointer-events-none md:hidden"
                         >
                           {item.label}
-                          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 border-r border-b border-cyan-500/40 rotate-45" />
+                          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#FAFAFF] border-r border-b border-[#DDE0F0] rotate-45" />
                         </motion.div>
                       )}
                     </AnimatePresence>
 
-                    {/* Active Bottom Glow Indicator */}
+                    {/* Active indicator dot */}
                     {isActive && (
                       <motion.div
                         layoutId="active-bubble-dot"
-                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-1 bg-cyan-400 rounded-full shadow-sm shadow-cyan-400"
+                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-1 bg-[#DDE0F0] rounded-full"
                         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                       />
                     )}

@@ -41,53 +41,53 @@ export const HeroSection: React.FC = () => {
           animate="visible"
           className="flex flex-col items-center"
         >
-          {/* Top Pill Badge */}
+          {/* Top Status Badge */}
           <motion.div 
             variants={fadeInUp}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-lg shadow-[#00F0FF]/5"
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#F2F3FC] border border-[#DDE0F0] mb-6 shadow-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse" />
-            <span className="text-xs font-mono uppercase tracking-widest text-gray-300 flex items-center gap-1.5">
-              <Terminal size={13} className="text-[#00F0FF]" />
-              Engineered Compulsion & Growth
-            </span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1E1B4B] animate-pulse" />
+              <span className="text-xs font-mono uppercase tracking-widest text-[#1E1B4B] flex items-center gap-1.5 font-bold">
+                <Terminal size={13} className="text-[#4F46E5]" />
+                $ status: open to the right problem
+              </span>
           </motion.div>
 
           {/* Profile Portrait Badge */}
           <motion.div variants={fadeInUp} className="mb-5">
-            <div className="relative p-1 rounded-full bg-gradient-to-tr from-cyan-500 via-purple-500 to-emerald-500 shadow-2xl shadow-cyan-500/20 group cursor-pointer">
+            <div className="relative p-1 rounded-full bg-gradient-to-tr from-[#4F46E5] via-[#DDE0F0] to-[#1E1B4B] shadow-xl shadow-[#4F46E5]/15 group cursor-pointer">
               <img
                 src={siteConfig.avatarUrl}
                 alt={siteConfig.name}
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-slate-950 group-hover:scale-105 transition-transform duration-500"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-[#FAFAFF] group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-slate-950 animate-pulse" title="Available for work" />
+              <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-[#4F46E5] border-2 border-[#FAFAFF] animate-pulse" title="Available for work" />
             </div>
           </motion.div>
 
           {/* Main Name Heading with ScrambledText Reveal */}
           <motion.h1 
             variants={fadeInUp}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 select-none"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#09090F] mb-6 select-none"
           >
-            <span className="block text-gray-400 text-lg sm:text-2xl font-normal tracking-normal mb-2 font-mono">
-              Hello, I am
+            <span className="block text-[#6B6880] text-lg sm:text-2xl font-normal tracking-normal mb-2 font-mono">
+              The marketer who ships code.
             </span>
             <ScrambledText 
               text={siteConfig.name} 
               speed={35} 
               delay={300}
-              className="bg-gradient-to-r from-white via-[#F3F4F6] to-[#9CA3AF] bg-clip-text text-transparent drop-shadow-sm"
+              className="text-[#09090F] drop-shadow-sm"
             />
           </motion.h1>
 
           {/* Dynamic Role / Title via RotatingText */}
           <motion.div 
             variants={fadeInUp}
-            className="text-xl sm:text-3xl md:text-4xl font-semibold text-gray-300 mb-8 flex flex-wrap items-center justify-center gap-3"
+            className="text-xl sm:text-3xl md:text-4xl font-semibold text-[#2D2B4A] mb-8 flex flex-wrap items-center justify-center gap-3"
           >
-            <span>Architecting</span>
-            <span className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#00F0FF]/20 to-[#8B5CF6]/20 border border-[#00F0FF]/40 text-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+            <span>Campaigns built on</span>
+            <span className="px-4 py-1.5 rounded-xl bg-[#F2F3FC] border border-[#DDE0F0] text-[#4F46E5] shadow-sm font-bold">
               <RotatingText items={siteConfig.roles} interval={3200} />
             </span>
           </motion.div>
@@ -95,7 +95,7 @@ export const HeroSection: React.FC = () => {
           {/* Short Bio Tagline */}
           <motion.p 
             variants={fadeInUp}
-            className="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+            className="text-base sm:text-xl text-[#2D2B4A] max-w-2xl mx-auto mb-12 leading-relaxed font-normal"
           >
             {siteConfig.shortBio}
           </motion.p>
@@ -110,10 +110,10 @@ export const HeroSection: React.FC = () => {
               onClick={scrollToProjects}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#00F0FF] to-[#8B5CF6] text-black font-bold text-base sm:text-lg rounded-full shadow-[0_0_30px_rgba(0,240,255,0.4)] flex items-center justify-center space-x-2 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 bg-[#4F46E5] text-white font-bold text-base sm:text-lg rounded-full shadow-lg shadow-[#4F46E5]/25 flex items-center justify-center space-x-2 transition-all cursor-pointer"
             >
-              <Sparkles size={18} className="text-black" />
-              <span>Explore Case Studies</span>
+              <Sparkles size={18} className="text-white" />
+              <span>See the Proof</span>
             </motion.a>
 
             <motion.a
@@ -121,9 +121,9 @@ export const HeroSection: React.FC = () => {
               onClick={scrollToContact}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-semibold text-base sm:text-lg rounded-full border border-white/20 backdrop-blur-md flex items-center justify-center space-x-2 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 bg-[#F2F3FC] hover:bg-[#DDE0F0]/50 text-[#09090F] font-semibold text-base sm:text-lg rounded-full border border-[#DDE0F0] flex items-center justify-center space-x-2 transition-all cursor-pointer shadow-sm"
             >
-              <span>Get in Touch</span>
+              <span>Start a Conversation</span>
             </motion.a>
           </motion.div>
         </motion.div>
@@ -140,9 +140,9 @@ export const HeroSection: React.FC = () => {
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{ delay: 2, duration: 2, repeat: Infinity }}
         aria-label="Scroll to About Section"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 text-gray-400 hover:text-[#00F0FF] transition-colors cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 text-[#6B6880] hover:text-[#4F46E5] transition-colors cursor-pointer"
       >
-        <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
+        <span className="text-xs font-mono tracking-widest uppercase">Keep going</span>
         <ArrowDown size={16} />
       </motion.a>
     </section>

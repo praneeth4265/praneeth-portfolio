@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+﻿import React, { useRef, useEffect } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 interface LiquidChromeProps {
@@ -11,7 +11,7 @@ interface LiquidChromeProps {
 export const LiquidChrome: React.FC<LiquidChromeProps> = ({
   className = '',
   speed = 0.5,
-  baseColor = [10, 15, 30],
+  baseColor = [250, 247, 241],
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -49,8 +49,8 @@ export const LiquidChrome: React.FC<LiquidChromeProps> = ({
       const r1 = Math.max(width, height) * 0.6;
 
       const grad1 = ctx.createRadialGradient(cx1, cy1, 0, cx1, cy1, r1);
-      grad1.addColorStop(0, 'rgba(0, 240, 255, 0.18)');
-      grad1.addColorStop(0.5, 'rgba(139, 92, 246, 0.12)');
+      grad1.addColorStop(0, 'rgba(172, 125, 67, 0.12)');
+      grad1.addColorStop(0.5, 'rgba(220, 207, 174, 0.10)');
       grad1.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
       ctx.fillStyle = grad1;
@@ -61,8 +61,8 @@ export const LiquidChrome: React.FC<LiquidChromeProps> = ({
       const r2 = Math.max(width, height) * 0.7;
 
       const grad2 = ctx.createRadialGradient(cx2, cy2, 0, cx2, cy2, r2);
-      grad2.addColorStop(0, 'rgba(236, 72, 153, 0.14)');
-      grad2.addColorStop(0.4, 'rgba(59, 130, 246, 0.15)');
+      grad2.addColorStop(0, 'rgba(44, 74, 110, 0.09)');
+      grad2.addColorStop(0.4, 'rgba(150, 112, 47, 0.08)');
       grad2.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
       ctx.fillStyle = grad2;
@@ -82,7 +82,7 @@ export const LiquidChrome: React.FC<LiquidChromeProps> = ({
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none z-0 ${className}`}>
       {prefersReducedMotion ? (
-        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-950/30 via-slate-900/60 to-purple-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#F5F4F0] via-[#FAFAF6] to-[#F5F4F0]" />
       ) : (
         <canvas ref={canvasRef} className="w-full h-full block" />
       )}

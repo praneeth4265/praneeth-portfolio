@@ -71,7 +71,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
                   stiffness: 260,
                   damping: 25,
                 }}
-                className="absolute inset-0 w-full p-6 md:p-8 rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl flex flex-col justify-between overflow-y-auto sm:overflow-hidden text-white"
+                className="absolute inset-0 w-full p-6 md:p-8 rounded-2xl bg-[#FAFAFF] border border-[#DDE0F0] shadow-lg flex flex-col justify-between overflow-y-auto sm:overflow-hidden text-[#09090F]"
               >
                 {item.content}
               </motion.div>
@@ -88,8 +88,8 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
               onClick={() => setActiveIndex(idx)}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 idx === activeIndex
-                  ? 'w-8 bg-primary shadow-sm shadow-primary/50'
-                  : 'w-2.5 bg-muted/60 hover:bg-muted'
+                  ? 'w-8 bg-[#4F46E5] shadow-sm shadow-[#4F46E5]/30'
+                  : 'w-2.5 bg-[#DDE0F0] hover:bg-[#6B6880]'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
@@ -99,14 +99,14 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
         <div className="flex gap-3">
           <button
             onClick={prevSlide}
-            className="p-2.5 rounded-xl border border-border bg-card/80 hover:bg-card hover:border-primary/50 text-foreground transition-all duration-200"
+            className="p-2.5 rounded-xl border border-[#DDE0F0] bg-[#FAFAFF] hover:bg-[#F2F3FC] hover:border-[#4F46E5] text-[#09090F] transition-all duration-200"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={nextSlide}
-            className="p-2.5 rounded-xl border border-border bg-card/80 hover:bg-card hover:border-primary/50 text-foreground transition-all duration-200"
+            className="p-2.5 rounded-xl border border-[#DDE0F0] bg-[#FAFAFF] hover:bg-[#F2F3FC] hover:border-[#4F46E5] text-[#09090F] transition-all duration-200"
             aria-label="Next testimonial"
           >
             <ChevronRight size={18} />

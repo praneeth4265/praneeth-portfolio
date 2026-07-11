@@ -4,35 +4,31 @@ import { AboutSection } from '@/components/sections/AboutSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
-import { BlogSection } from '@/components/sections/BlogSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 export const HomePage: React.FC = () => {
   return (
     <main className="w-full relative overflow-x-hidden">
-      {/* 1. Hero Section (Full viewport, dark theme) */}
+      {/* 1. Hero Section */}
       <HeroSection />
 
-      {/* 2. About Section (Light theme) */}
+      {/* 2. About Section */}
       <AboutSection />
 
-      {/* 3. Projects Section (Dark theme) */}
+      {/* 3. Projects Section */}
       <ProjectsSection />
 
-      {/* 4. Skills Section (Light theme) */}
+      {/* 4. Skills Section */}
       <SkillsSection />
 
-      {/* 5. Experience Section (Dark theme) */}
+      {/* 5. Experience Section */}
       <ExperienceSection />
 
-      {/* 6. Blog / Insights Section (Light theme) */}
-      <BlogSection />
-
-      {/* 7. Testimonials Section (Dark theme) */}
+      {/* 6. Testimonials Section */}
       <TestimonialsSection />
 
-      {/* 8. Contact Section (Dark transition conversion engine) */}
+      {/* 7. Contact Section */}
       <ContactSection />
     </main>
   );

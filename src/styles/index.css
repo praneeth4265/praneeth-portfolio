@@ -12,49 +12,53 @@
 
 @layer base {
   :root {
-    --bg-dark: #0A0A0E;
-    --bg-dark-card: #12121A;
-    --bg-dark-border: rgba(255, 255, 255, 0.08);
-    --text-dark-primary: #F3F4F6;
-    --text-dark-secondary: #9CA3AF;
+    /* ─── Indigo Precision — Engineering exactness meets Marketing velocity ── */
 
-    --bg-light: #F8FAFC;
-    --bg-light-card: #FFFFFF;
-    --bg-light-border: rgba(0, 0, 0, 0.08);
-    --text-light-primary: #0F172A;
-    --text-light-secondary: #475569;
+    /* Crisp cool white — a whisper of blue, not clinical, not warm */
+    --bg-base:          #FAFAFF;
+    /* Cool pearl — section alternation, feels like a high-end spec sheet */
+    --bg-surface:       #F2F3FC;
+    /* Indigo frost border — precision grid lines */
+    --border-subtle:    #DDE0F0;
 
-    /* Semantic tokens for light sections (`theme="light"`) */
-    --primary: #00F0FF;
-    --foreground: #0F172A;
-    --muted-foreground: #475569;
-    --card: #FFFFFF;
-    --border: rgba(15, 23, 42, 0.12);
-    --muted: rgba(15, 23, 42, 0.06);
-    --accent: #00F0FF;
-  }
+    /* Electric Indigo — The color of conviction. Bloomberg terminal intelligence
+       meets the decisiveness of a seasoned performance marketer. Neither timid
+       blue nor loud purple — the exact midpoint that means business. */
+    --brand-indigo:     #4F46E5;
+    /* Deep indigo — hover, pressed, depth */
+    --brand-indigo-dk:  #3730A3;
+    /* Indigo tint — badge/pill backgrounds, hover states */
+    --brand-indigo-tint: rgba(79, 70, 229, 0.08);
 
-  .dark {
-    /* Semantic tokens for dark sections (`theme="dark"`) */
-    --primary: #00F0FF;
-    --foreground: #F3F4F6;
-    --muted-foreground: #9CA3AF;
-    --card: #12121A;
-    --border: rgba(255, 255, 255, 0.12);
-    --muted: rgba(255, 255, 255, 0.06);
-    --accent: #00F0FF;
+    /* Indigo Navy — deep authority, the weight of a precision instrument */
+    --brand-navy:       #1E1B4B;
+
+    /* Ink — near-black with a blue undertone, reads sharper than pure black */
+    --text-ink:         #09090F;
+    /* Cool slate body — readable, modern, not warm */
+    --text-body:        #2D2B4A;
+    /* Soft slate muted — labels, timestamps, meta */
+    --text-muted:       #6B6880;
+
+    /* ─── Semantic tokens for Tailwind class usage ──────────────────── */
+    --primary:           #4F46E5;
+    --foreground:        #09090F;
+    --muted-foreground:  #6B6880;
+    --card:              #FAFAFF;
+    --border:            rgba(79, 70, 229, 0.15);
+    --muted:             rgba(79, 70, 229, 0.05);
+    --accent:            #4F46E5;
   }
 
   body {
-    background-color: var(--bg-dark);
-    color: var(--text-dark-primary);
+    background-color: #FAFAFF;
+    color: #09090F;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
   }
 
-  /* Smooth scrolling globally except when reduced motion is requested */
   html {
     scroll-behavior: smooth;
   }
@@ -71,20 +75,20 @@
   }
 }
 
-/* Custom scrollbar */
+/* Precision scrollbar — cool pearl track with indigo thumb */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: #F2F3FC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #DDE0F0;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: #4F46E5;
 }

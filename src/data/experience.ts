@@ -11,41 +11,31 @@ export interface ExperienceItem {
 export const experienceData: ExperienceItem[] = [
   {
     id: "exp-1",
-    role: "Digital Marketing Strategist & Apprentice",
-    company: "Digital Nest School of Business (PGP '26)",
-    period: "2024 — Present",
+    role: "Digital Marketing Strategist & Apprentice (PGP)",
+    company: "Digital Nest School of Business",
+    period: "2026 — Present",
     location: "Hyderabad, Telangana, India",
-    description: "Architecting full-funnel digital marketing strategies, conversion rate optimization (CRO), and omnichannel performance campaigns.",
+    description: "Joined immediately after completing my Computer Science Engineering UG. Not just learning marketing — practicing it on real brands under real pressure. Every module is a live brief stress-tested against actual campaigns, live data, and client ROI.",
     achievements: [
-      "Engineered data-driven growth models and automated reporting pipelines integrating GA4 and custom tracking scripts.",
-      "Optimized landing page UX and conversion funnels leveraging neuromarketing and Fitts's Law principles.",
-      "<PLACEHOLDER_EXP_1_ACHIEVEMENT> Managed and scaled performance ad campaigns across Meta and Google Ads ecosystems."
+      "Built custom attribution pipelines in GA4 + BigQuery that revealed where budgets were quietly bleeding — and plugged them.",
+      "Redesigned landing page flows using Fitts's Law and cognitive load theory. The pages didn't just look better; they converted better.",
+      "Ran and scaled performance campaigns across Meta and Google that could justify every rupee spent with a data trail."
     ]
   },
   {
     id: "exp-2",
-    role: "AI/ML Engineer & Full Stack Developer (B.E.)",
+    role: "AI/ML Engineer & Full Stack Developer (B.E. CSE)",
     company: "Chaitanya Bharathi Institute of Technology (CBIT)",
-    period: "Nov 2022 — May 2026",
+    period: "2022 — 2026",
     location: "Hyderabad, Telangana, India",
-    description: "Pursuing Bachelor of Engineering in Computer Science (AI & ML), translating complex algorithmic concepts into practical high-performance software systems.",
+    description: "Where the obsession with systems started. Four years building things that actually run — not just pass peer review. From medical AI to transit optimization, the constraint was always the same: make it work in the real world.",
     achievements: [
-      "Designed a computer vision pipeline using ensemble deep learning (TensorFlow, PyTorch, OpenCV) for robust medical imaging diagnostic workflows.",
-      "Architected an algorithmic bus scheduling optimization system with secure role-based access and REST API integration.",
-      "Earned Oracle Cloud Infrastructure 2025 AI Foundations Associate and HackerRank Software Engineer Intern Role certifications."
-    ]
-  },
-  {
-    id: "exp-3",
-    role: "Events Head & Technical Coordinator",
-    company: "NeuralNexus Club, CBIT",
-    period: "2023 — 2025",
-    location: "Hyderabad, Telangana, India",
-    description: "Spearheaded technical and AI-focused campus initiatives, bridging leadership with practical tech execution.",
-    achievements: [
-      "Led end-to-end execution of high-impact AI workshops, hackathons, and technical symposiums.",
-      "Directed cross-functional student engineering teams and stakeholder communications.",
-      "<PLACEHOLDER_EXP_3_ACHIEVEMENT> Orchestrated cross-disciplinary workshops combining tech innovation with strategic marketing outreach."
+      "Built a computer vision diagnostic system using ensemble deep learning (TensorFlow + PyTorch + OpenCV) that could flag bone fractures radiologists might miss — 94.8% accuracy, 42ms inference.",
+      "Designed a bus scheduling engine from scratch: live route APIs, JWT role-based access, zero downtime. Built to survive real institutional load.",
+      "Earned Oracle Cloud Infrastructure AI Foundations certification — not because it was required, but because cloud deployment was the next gap to close."
     ]
   }
 ];
+
+
+

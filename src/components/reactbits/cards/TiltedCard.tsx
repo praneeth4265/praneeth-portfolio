@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+﻿import React, { useRef, useState } from 'react';
 import { motion, useSpring } from 'motion/react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
@@ -70,7 +70,7 @@ export const TiltedCard: React.FC<TiltedCardProps> = ({
             }
       }
       className={`relative rounded-2xl overflow-hidden transition-shadow duration-300 ${
-        isHovered ? 'shadow-2xl shadow-cyan-500/10' : 'shadow-lg'
+        isHovered ? 'shadow-2xl shadow-[#E8A020]/12' : 'shadow-md shadow-[#38352E]/6'
       } ${className}`}
     >
       <div style={{ transform: 'translateZ(20px)' }} className="w-full h-full">

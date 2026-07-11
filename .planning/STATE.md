@@ -9,17 +9,18 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 
 ## Current Phase
 
-**Phase:** 3
-**Name:** Detail Pages + Global Polish
+**Phase:** 4
+**Name:** Deployment & Vercel Release
 **Status:** Complete
-**Started:** 2026-07-10
-**Completed:** 2026-07-10
+**Started:** 2026-07-11
+**Completed:** 2026-07-11
 
 ## Phase History
 
 - **Phase 1: Foundation + Hero + Navigation** — Completed 2026-07-10 (`1df143a`)
 - **Phase 2: Content Sections + Interactivity** — Completed 2026-07-10
 - **Phase 3: Detail Pages + Global Polish** — Completed 2026-07-10
+- **Phase 4: Deployment & Vercel Release** — Completed 2026-07-11
 
 ## Active Decisions
 

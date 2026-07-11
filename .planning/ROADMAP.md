@@ -11,6 +11,7 @@
 | 1 | Foundation + Hero + Navigation | Complete |
 | 2 | Content Sections + Interactivity | Complete |
 | 3 | Detail Pages + Global Polish | Complete |
+| 4 | Deployment & Vercel Release | Complete |
 
 ---
 
@@ -126,4 +127,15 @@
 **Coverage:** 37/37 requirements mapped ✓
 
 ---
-*Roadmap created: 2026-07-10*
+
+### Phase 4: Deployment & Vercel Release
+**Goal:** Run production build validation, configure redirect/routing configurations for client-side routing on Vercel, verify build success, and document launch guidelines.
+**Mode:** standard
+**Success Criteria**:
+1. Production bundle compiles cleanly via `npm run build` with no TS or linting blocks
+2. `vercel.json` exists in root with correct rewrite configurations for client-side routing
+3. Detailed deployment instructions documented for the user in `DEPLOYMENT.md`
+
+---
+*Roadmap updated: 2026-07-11*
+
