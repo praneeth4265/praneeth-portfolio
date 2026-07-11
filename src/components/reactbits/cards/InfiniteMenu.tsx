@@ -1192,7 +1192,10 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
           select-none
           absolute
           font-black
-          [font-size:3rem]
+          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+          leading-tight
+          max-w-[35vw] sm:max-w-[40vw]
+          break-words
           left-[1.6em]
           top-1/2
           transform
