@@ -504,27 +504,44 @@ class ArcballControl {
   private readonly EPSILON = 0.1;
   private readonly IDENTITY_QUAT = quat.create();
 
+  private pointerdownListener: (e: PointerEvent) => void;
+  private pointerupListener: () => void;
+  private pointerleaveListener: () => void;
+  private pointermoveListener: (e: PointerEvent) => void;
+
   constructor(canvas: HTMLCanvasElement, updateCallback?: UpdateCallback) {
     this.canvas = canvas;
     this.updateCallback = updateCallback || (() => undefined);
 
-    canvas.addEventListener('pointerdown', (e: PointerEvent) => {
+    this.pointerdownListener = (e: PointerEvent) => {
       vec2.set(this.pointerPos, e.clientX, e.clientY);
       vec2.copy(this.previousPointerPos, this.pointerPos);
       this.isPointerDown = true;
-    });
-    canvas.addEventListener('pointerup', () => {
+    };
+    this.pointerupListener = () => {
       this.isPointerDown = false;
-    });
-    canvas.addEventListener('pointerleave', () => {
+    };
+    this.pointerleaveListener = () => {
       this.isPointerDown = false;
-    });
-    canvas.addEventListener('pointermove', (e: PointerEvent) => {
+    };
+    this.pointermoveListener = (e: PointerEvent) => {
       if (this.isPointerDown) {
         vec2.set(this.pointerPos, e.clientX, e.clientY);
       }
-    });
+    };
+
+    canvas.addEventListener('pointerdown', this.pointerdownListener);
+    canvas.addEventListener('pointerup', this.pointerupListener);
+    canvas.addEventListener('pointerleave', this.pointerleaveListener);
+    canvas.addEventListener('pointermove', this.pointermoveListener);
     canvas.style.touchAction = 'none';
+  }
+
+  public destroy(): void {
+    this.canvas.removeEventListener('pointerdown', this.pointerdownListener);
+    this.canvas.removeEventListener('pointerup', this.pointerupListener);
+    this.canvas.removeEventListener('pointerleave', this.pointerleaveListener);
+    this.canvas.removeEventListener('pointermove', this.pointermoveListener);
   }
 
   public update(deltaTime: number, targetFrameDuration = 16): void {
@@ -700,6 +717,7 @@ class InfiniteGridMenu {
   private _deltaTime = 0;
   private _deltaFrames = 0;
   private _frames = 0;
+  private animationFrameId: number | null = null;
 
   private movementActive = false;
 
@@ -764,7 +782,29 @@ class InfiniteGridMenu {
     this.animate(this._deltaTime);
     this.render();
 
-    requestAnimationFrame(t => this.run(t));
+    this.animationFrameId = requestAnimationFrame(t => this.run(t));
+  }
+
+  public destroy(): void {
+    if (this.animationFrameId !== null) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    if (this.control) {
+      this.control.destroy();
+    }
+    if (this.gl) {
+      const gl = this.gl;
+      if (this.tex) gl.deleteTexture(this.tex);
+      if (this.discVAO) gl.deleteVertexArray(this.discVAO);
+      if (this.discInstances && this.discInstances.buffer) {
+        gl.deleteBuffer(this.discInstances.buffer);
+      }
+      if (this.discProgram) gl.deleteProgram(this.discProgram);
+      const ext = gl.getExtension('WEBGL_lose_context');
+      if (ext) {
+        ext.loseContext();
+      }
+    }
   }
 
   private init(onInit?: InitCallback): void {
@@ -1169,6 +1209,9 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (sketch) {
+        sketch.destroy();
+      }
     };
   }, [items, scale]);
 

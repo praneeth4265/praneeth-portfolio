@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { Container } from '@/components/ui/Container';
@@ -33,14 +33,16 @@ export const ProjectsSection: React.FC = () => {
     ? projectsData
     : projectsData.filter((p) => p.category === activeTab);
 
-  const menuItems = filteredProjects.map((project) => ({
-    image: project.coverUrl || project.thumbnailUrl,
-    link: `/projects/${project.slug}`,
-    title: project.title,
-    description: project.tagline,
-    category: CATEGORY_DISPLAY_MAP[project.category].toUpperCase(),
-    metrics: project.metrics?.[0]?.value || 'Verified Impact'
-  }));
+  const menuItems = useMemo(() => {
+    return filteredProjects.map((project) => ({
+      image: project.coverUrl || project.thumbnailUrl,
+      link: `/projects/${project.slug}`,
+      title: project.title,
+      description: project.tagline,
+      category: CATEGORY_DISPLAY_MAP[project.category].toUpperCase(),
+      metrics: project.metrics?.[0]?.value || 'Verified Impact'
+    }));
+  }, [filteredProjects]);
 
   return (
     <SectionWrapper id="projects" theme="light" withTopBorder>
