@@ -19,9 +19,9 @@ Conducting a visual audit of the *Indigo Precision* rebrand deployment, specific
 
 ## Findings & Resolutions
 
-### [RESOLVED] 3D Case Study Wheel Background Color
-* **Finding:** The dark-blue WebGL container block stood out aggressively on a clean light-mode layout.
-* **Resolution:** Converted the container background to a soft light gradient (`bg-gradient-to-b from-[#FAFAFF] via-[#F2F3FC] to-[#FAFAFF]`) with a 6% opacity ambient blur glow. Text elements inside `InfiniteMenu.tsx` were shifted from white to deep slate (`#09090F` and `#2D2B4A`) for maximum readability.
+### [RESOLVED] 3D Case Study Wheel Background Color & Contrast
+* **Finding:** The dark-blue WebGL container block stood out aggressively on a clean light-mode layout. Changing text colors to dark slate caused characters to merge with rotating 3D images passing behind them.
+* **Resolution:** Converted the container background to a soft light gradient (`bg-gradient-to-b from-[#FAFAFF] via-[#F2F3FC] to-[#FAFAFF]`) with a 6% opacity ambient blur glow. Wrapped the title, description, and active project tags inside elegant frosted-glass cards (`bg-white/85`, `backdrop-blur-md`, `border-[#DDE0F0]`) to isolate dark slate text (`#09090F` and `#2D2B4A`) from WebGL assets, guaranteeing perfect text contrast at all angles.
 
 ### [RESOLVED] Title Overlap & Clipping
 * **Finding:** Long titles on the 3D wheel overlapped descriptions and taglines.
