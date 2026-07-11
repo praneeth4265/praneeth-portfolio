@@ -26,16 +26,7 @@ export const Navigation: React.FC = () => {
     setMobileMenuOpen(false);
     
     if (location.pathname !== '/') {
-      navigate('/');
-      if (href.startsWith('#')) {
-        const targetId = href.substring(1);
-        setTimeout(() => {
-          const elem = document.getElementById(targetId);
-          if (elem) {
-            elem.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 150);
-      }
+      navigate('/' + href);
     } else {
       if (href.startsWith('#')) {
         const targetId = href.substring(1);
