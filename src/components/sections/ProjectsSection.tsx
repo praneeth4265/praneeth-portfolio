@@ -112,10 +112,10 @@ export const ProjectsSection: React.FC = () => {
 
         {/* Layout Display: 3D Wheel or Bento Grid */}
         {viewMode === 'wheel' ? (
-          <div className="relative w-full h-[580px] sm:h-[680px] md:h-[760px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#1E1B4B] via-[#0F0E2A] to-[#131128] border border-[#DDE0F0]/20 shadow-2xl transition-all duration-500">
+          <div className="relative w-full h-[580px] sm:h-[680px] md:h-[760px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#FAFAFF] via-[#F2F3FC] to-[#FAFAFF] border border-[#DDE0F0] shadow-xl transition-all duration-500">
             {/* Ambient background glow inside the 3D wheel container */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#4F46E5]/15 rounded-full blur-[120px]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#4F46E5]/6 rounded-full blur-[100px]" />
             </div>
 
             {/* Instruction badge */}

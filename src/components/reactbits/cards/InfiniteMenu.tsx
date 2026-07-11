@@ -1208,8 +1208,8 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
           -translate-y-1/2
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          text-white
-          drop-shadow-lg
+          text-[#09090F]
+          drop-shadow-sm
           ${
             isMoving
               ? 'opacity-0 pointer-events-none duration-[100ms]'
@@ -1228,8 +1228,8 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
           text-[1.1rem]
           top-1/2
           right-[1%]
-          text-[#C4C3E8]
-          font-medium
+          text-[#2D2B4A]
+          font-semibold
           leading-snug
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
@@ -1247,10 +1247,10 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
           <div
             className="select-none absolute left-1/2 -translate-x-1/2 text-center z-10 bottom-[8.2em] transition-all ease-[cubic-bezier(0.25,0.1,0.25,1.0)] duration-[300ms]"
           >
-            <span className="font-mono tracking-widest text-[10px] font-bold text-[#6D6AFF] uppercase block mb-1">
+            <span className="font-mono tracking-widest text-[10px] font-bold text-[#4F46E5] uppercase block mb-1">
               Active Project
             </span>
-            <h3 className="font-black text-xl sm:text-2xl text-white drop-shadow-lg tracking-wide uppercase whitespace-nowrap">
+            <h3 className="font-black text-xl sm:text-2xl text-[#09090F] drop-shadow-sm tracking-wide uppercase whitespace-nowrap">
               {activeItem.title.trim().split(/\s+/).slice(0, 2).join(' ')}
             </h3>
           </div>
