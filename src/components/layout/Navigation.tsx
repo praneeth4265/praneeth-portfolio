@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { navigationItems } from '@/data/navigation';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -9,6 +10,8 @@ export const Navigation: React.FC = () => {
   const activeSection = useActiveSection();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,14 +25,27 @@ export const Navigation: React.FC = () => {
     e.preventDefault();
     setMobileMenuOpen(false);
     
-    if (href.startsWith('#')) {
-      const targetId = href.substring(1);
-      const elem = document.getElementById(targetId);
-      if (elem) {
-        elem.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/');
+      if (href.startsWith('#')) {
+        const targetId = href.substring(1);
+        setTimeout(() => {
+          const elem = document.getElementById(targetId);
+          if (elem) {
+            elem.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
       }
     } else {
-      window.location.href = href;
+      if (href.startsWith('#')) {
+        const targetId = href.substring(1);
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate(href);
+      }
     }
   };
 
