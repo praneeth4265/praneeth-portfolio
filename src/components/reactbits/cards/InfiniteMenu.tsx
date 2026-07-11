@@ -652,6 +652,7 @@ interface Camera {
 
 class InfiniteGridMenu {
   private gl: WebGL2RenderingContext | null = null;
+  private currentActiveIndex = -1;
   private discProgram: WebGLProgram | null = null;
   private discVAO: WebGLVertexArrayObject | null = null;
   private discBuffers!: {
@@ -1072,10 +1073,14 @@ class InfiniteGridMenu {
       this.onMovementChange(isMoving);
     }
 
-    if (!this.control.isPointerDown) {
-      const nearestVertexIndex = this.findNearestVertexIndex();
-      const itemIndex = nearestVertexIndex % Math.max(1, this.items.length);
+    const nearestVertexIndex = this.findNearestVertexIndex();
+    const itemIndex = nearestVertexIndex % Math.max(1, this.items.length);
+    if (itemIndex !== this.currentActiveIndex) {
+      this.currentActiveIndex = itemIndex;
       this.onActiveItemChange(itemIndex);
+    }
+
+    if (!this.control.isPointerDown) {
       const snapDirection = vec3.normalize(vec3.create(), this.getVertexWorldPosition(nearestVertexIndex));
       this.control.snapTargetDirection = snapDirection;
     } else {
@@ -1240,22 +1245,7 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
 
           {/* Centered 2-word title displayed outside, below the active center disc */}
           <div
-            className={`
-              select-none
-              absolute
-              left-1/2
-              transform
-              -translate-x-1/2
-              text-center
-              z-10
-              transition-all
-              ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-              ${
-                isMoving
-                  ? 'bottom-[6.5em] opacity-0 pointer-events-none scale-90 duration-[150ms]'
-                  : 'bottom-[8.2em] opacity-100 pointer-events-auto scale-100 duration-[400ms]'
-              }
-            `}
+            className="select-none absolute left-1/2 -translate-x-1/2 text-center z-10 bottom-[8.2em] transition-all ease-[cubic-bezier(0.25,0.1,0.25,1.0)] duration-[300ms]"
           >
             <span className="font-mono tracking-widest text-[10px] font-bold text-[#6D6AFF] uppercase block mb-1">
               Active Project
