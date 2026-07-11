@@ -872,20 +872,12 @@ class InfiniteGridMenu {
       ctx.fillStyle = grad;
       ctx.fillRect(x, y, cellSize, cellSize);
 
-      // Draw a solid dark bottom bar for the title
-      ctx.fillStyle = '#09090F';
-      ctx.fillRect(x, y + cellSize * 0.78, cellSize, cellSize * 0.22);
-
-      // Draw the formatted 2-word title
-      const title = this.items[i]?.title || '';
-      const words = title.trim().split(/\s+/);
-      const twoWordTitle = words.slice(0, 2).join(' ').toUpperCase();
-
-      ctx.fillStyle = '#FAFAFF';
-      ctx.font = `900 ${cellSize * 0.058}px sans-serif`;
+      // Draw a subtle label in the placeholder
+      ctx.fillStyle = 'rgba(255,255,255,0.25)';
+      ctx.font = `bold ${cellSize * 0.08}px sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(twoWordTitle, x + cellSize / 2, y + cellSize * 0.89);
+      ctx.fillText(this.items[i]?.title?.slice(0, 20) || '', x + cellSize / 2, y + cellSize / 2);
     }
 
     // Upload placeholder atlas right away — discs show coloured immediately
@@ -916,24 +908,7 @@ class InfiniteGridMenu {
         anyLoaded = true;
         const x = (index % this.atlasSize) * cellSize;
         const y = Math.floor(index / this.atlasSize) * cellSize;
-        
-        // Draw image in the top 78% of the cell
-        ctx.drawImage(img, x, y, cellSize, cellSize * 0.78);
-        
-        // Draw solid dark bottom bar for the title
-        ctx.fillStyle = '#09090F';
-        ctx.fillRect(x, y + cellSize * 0.78, cellSize, cellSize * 0.22);
-
-        // Draw the formatted 2-word title
-        const title = this.items[index]?.title || '';
-        const words = title.trim().split(/\s+/);
-        const twoWordTitle = words.slice(0, 2).join(' ').toUpperCase();
-
-        ctx.fillStyle = '#FAFAFF';
-        ctx.font = `900 ${cellSize * 0.058}px sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(twoWordTitle, x + cellSize / 2, y + cellSize * 0.89);
+        ctx.drawImage(img, x, y, cellSize, cellSize);
       });
 
       if (anyLoaded) {
@@ -1262,6 +1237,33 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
           >
             {activeItem.description}
           </p>
+
+          {/* Centered 2-word title displayed outside, below the active center disc */}
+          <div
+            className={`
+              select-none
+              absolute
+              left-1/2
+              transform
+              -translate-x-1/2
+              text-center
+              z-10
+              transition-all
+              ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+              ${
+                isMoving
+                  ? 'bottom-[6.5em] opacity-0 pointer-events-none scale-90 duration-[150ms]'
+                  : 'bottom-[8.2em] opacity-100 pointer-events-auto scale-100 duration-[400ms]'
+              }
+            `}
+          >
+            <span className="font-mono tracking-widest text-[10px] font-bold text-[#6D6AFF] uppercase block mb-1">
+              Active Project
+            </span>
+            <h3 className="font-black text-xl sm:text-2xl text-white drop-shadow-lg tracking-wide uppercase whitespace-nowrap">
+              {activeItem.title.trim().split(/\s+/).slice(0, 2).join(' ')}
+            </h3>
+          </div>
 
           <div
             onClick={handleButtonClick}
