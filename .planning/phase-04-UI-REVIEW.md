@@ -30,3 +30,7 @@ Conducting a visual audit of the *Indigo Precision* rebrand deployment, specific
 ### [RESOLVED] Real-time Title Display
 * **Finding:** Title text below the wheel only updated after releasing the mouse cursor.
 * **Resolution:** Re-routed active index calculations frame-by-frame during mouse pointer drag, updating the uppercase project tags instantly.
+
+### [RESOLVED] Premium Typographic Hierarchy & Fonts
+* **Finding:** Standard system font stacks on project titles inside the 3D menu lacked weight dynamics and felt basic rather than luxury-agency grade.
+* **Resolution:** Imported Google Fonts **Outfit** (geometric sans-serif) globally. Substituted the bulky `font-black` headings with clean `font-bold tracking-tight` titles and configured the centered project tag with wide-tracked letter-spacing (`tracking-[0.15em] font-semibold text-[10px] uppercase`) to produce a highly refined, premium editorial visual balance.
