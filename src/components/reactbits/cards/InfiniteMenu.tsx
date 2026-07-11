@@ -1219,7 +1219,7 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
               }
             `}
           >
-            <h2 className="font-black text-lg sm:text-xl md:text-2xl text-[#09090F] leading-tight">
+            <h2 className="font-bold tracking-tight text-lg sm:text-xl md:text-2xl text-[#09090F] leading-tight">
               {activeItem.title}
             </h2>
           </div>
@@ -1263,7 +1263,7 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
             <span className="font-mono tracking-widest text-[9px] font-bold text-[#4F46E5] uppercase block mb-0.5">
               Active Project
             </span>
-            <h3 className="font-black text-xs sm:text-sm text-[#09090F] tracking-wide uppercase whitespace-nowrap">
+            <h3 className="font-semibold tracking-[0.15em] text-[10px] sm:text-xs text-[#09090F] uppercase whitespace-nowrap">
               {activeItem.title.trim().split(/\s+/).slice(0, 2).join(' ')}
             </h3>
           </div>
