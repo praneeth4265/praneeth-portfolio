@@ -872,12 +872,20 @@ class InfiniteGridMenu {
       ctx.fillStyle = grad;
       ctx.fillRect(x, y, cellSize, cellSize);
 
-      // Draw a subtle label in the placeholder
-      ctx.fillStyle = 'rgba(255,255,255,0.25)';
-      ctx.font = `bold ${cellSize * 0.08}px sans-serif`;
+      // Draw a solid dark bottom bar for the title
+      ctx.fillStyle = '#09090F';
+      ctx.fillRect(x, y + cellSize * 0.78, cellSize, cellSize * 0.22);
+
+      // Draw the formatted 2-word title
+      const title = this.items[i]?.title || '';
+      const words = title.trim().split(/\s+/);
+      const twoWordTitle = words.slice(0, 2).join(' ').toUpperCase();
+
+      ctx.fillStyle = '#FAFAFF';
+      ctx.font = `900 ${cellSize * 0.058}px sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(this.items[i]?.title?.slice(0, 20) || '', x + cellSize / 2, y + cellSize / 2);
+      ctx.fillText(twoWordTitle, x + cellSize / 2, y + cellSize * 0.89);
     }
 
     // Upload placeholder atlas right away — discs show coloured immediately
@@ -908,7 +916,24 @@ class InfiniteGridMenu {
         anyLoaded = true;
         const x = (index % this.atlasSize) * cellSize;
         const y = Math.floor(index / this.atlasSize) * cellSize;
-        ctx.drawImage(img, x, y, cellSize, cellSize);
+        
+        // Draw image in the top 78% of the cell
+        ctx.drawImage(img, x, y, cellSize, cellSize * 0.78);
+        
+        // Draw solid dark bottom bar for the title
+        ctx.fillStyle = '#09090F';
+        ctx.fillRect(x, y + cellSize * 0.78, cellSize, cellSize * 0.22);
+
+        // Draw the formatted 2-word title
+        const title = this.items[index]?.title || '';
+        const words = title.trim().split(/\s+/);
+        const twoWordTitle = words.slice(0, 2).join(' ').toUpperCase();
+
+        ctx.fillStyle = '#FAFAFF';
+        ctx.font = `900 ${cellSize * 0.058}px sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(twoWordTitle, x + cellSize / 2, y + cellSize * 0.89);
       });
 
       if (anyLoaded) {
