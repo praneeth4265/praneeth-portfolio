@@ -57,7 +57,7 @@ export const HeroSection: React.FC = () => {
           <motion.div variants={fadeInUp} className="mb-5">
             <div className="relative p-1 rounded-full bg-gradient-to-tr from-[#4F46E5] via-[#DDE0F0] to-[#1E1B4B] shadow-xl shadow-[#4F46E5]/15 group cursor-pointer">
               <img
-                src={siteConfig.avatarUrl}
+                src="/images/hero_avatar.jpg"
                 alt={siteConfig.name}
                 className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-[#FAFAFF] group-hover:scale-105 transition-transform duration-500"
               />
