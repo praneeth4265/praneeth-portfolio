@@ -99,8 +99,8 @@ export const projectsData: Project[] = [
     slug: "nykaa-inspired-ecom-website",
     tagline: "Beauty shoppers have zero patience for friction. So I removed all of it.",
     category: "creative",
-    thumbnailUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
-    coverUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=80",
+    thumbnailUrl: "/images/nykaa_store.png",
+    coverUrl: "/images/nykaa_store.png",
     summary: "Built a D2C beauty storefront architected around one insight: beauty buyers make emotional decisions, then rational ones. The storefront needed to feel premium before a single product image loaded — and then make selecting between 400 shade variants feel effortless.",
     metrics: [
       { label: "Cart Abandonment", value: "-34%" },
@@ -253,8 +253,8 @@ export const projectsData: Project[] = [
     slug: "automating-creatives-midjourney",
     tagline: "From 5 creatives a week to 100 a day. Creative fatigue is a resource problem I solved with code.",
     category: "creative",
-    thumbnailUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-    coverUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80",
+    thumbnailUrl: "/images/midjourney_automation.png",
+    coverUrl: "/images/midjourney_automation.png",
     summary: "Performance marketing has a dirty secret: creative quality matters less than creative volume at the testing stage. You can't discover your winning ad unless you can run 50 variants simultaneously. I built a generative AI pipeline that makes that volume possible without agencies, without turnaround weeks, without the invoice.",
     metrics: [
       { label: "Production Velocity", value: "20x Faster" },
@@ -363,8 +363,8 @@ export const projectsData: Project[] = [
     slug: "bone-fracture-detection-ai-pipeline",
     tagline: "94.8% diagnostic accuracy. 42ms inference. Trained to catch what tired eyes miss.",
     category: "technical",
-    thumbnailUrl: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
-    coverUrl: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    thumbnailUrl: "/images/bone_fracture_ai.png",
+    coverUrl: "/images/bone_fracture_ai.png",
     summary: "A radiologist reads hundreds of X-rays under time pressure. An ensemble neural network doesn't get tired at 3am. I built a computer vision diagnostic pipeline that flags bone fractures with 94.8% accuracy — not as a replacement for clinical judgment, but as the second pair of eyes that never blinks.",
     metrics: [
       { label: "Model Accuracy", value: "94.8%", change: "+12.4%" },
