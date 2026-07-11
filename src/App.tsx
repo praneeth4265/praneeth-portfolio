@@ -66,6 +66,16 @@ const AppRoutes: React.FC = () => {
 };
 
 export const App: React.FC = () => {
+  React.useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    // If there is no hash in the URL on initial mount, force scroll to top
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen bg-[#FAFAFF] text-[#09090F] font-sans antialiased selection:bg-[#4F46E5]/15 selection:text-[#09090F] relative overflow-x-hidden">
