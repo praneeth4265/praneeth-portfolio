@@ -794,8 +794,8 @@ export default function LiquidEther({
         this.createShaderPass();
       }
       getFloatType() {
-        const isIOS = /(iPad|iPhone|iPod)/i.test(navigator.userAgent);
-        return isIOS ? THREE.HalfFloatType : THREE.FloatType;
+        // Use HalfFloatType for broad WebGL2 framebuffer compatibility across devices and browsers
+        return THREE.HalfFloatType;
       }
       createAllFBO() {
         const type = this.getFloatType();

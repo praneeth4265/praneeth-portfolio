@@ -42,6 +42,15 @@ export const HeroSection: React.FC = () => {
 
   const showInteractiveBackground = !reducedMotion && !isMobile && hasWebGL;
 
+  React.useEffect(() => {
+    console.log('[HeroSection Debug] Background Rendering Status:', {
+      prefersReducedMotion: reducedMotion,
+      isMobileViewport: isMobile,
+      isWebGLSupported: hasWebGL,
+      renderInteractiveWebGL: showInteractiveBackground
+    });
+  }, [reducedMotion, isMobile, hasWebGL, showInteractiveBackground]);
+
   const scrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const elem = document.getElementById('projects');
