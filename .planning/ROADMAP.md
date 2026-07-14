@@ -16,9 +16,11 @@
 ---
 
 ### Phase 1: Foundation + Hero + Navigation
+
 **Goal:** Deliver a working single-page app with a jaw-dropping hero section, persistent animated navigation, and the complete data/animation architecture — the visitor can land, be wowed, and navigate.
 **Mode:** mvp
 **Success Criteria**:
+
 1. Vite + React + Tailwind project boots and renders on localhost
 2. Data layer files exist with TypeScript interfaces and PLACEHOLDER content
 3. PillNav/GooeyNav navigation renders with smooth scroll to section anchors
@@ -37,9 +39,11 @@
 ---
 
 ### Phase 2: Content Sections + Interactivity
+
 **Goal:** Build all remaining scrollable sections (About, Projects grid, Skills, Experience, Blog, Testimonials, Contact CTA) with their signature reactbits animations — the visitor can scroll through the complete narrative and interact with every section.
 **Mode:** mvp
 **Success Criteria**:
+
 1. About section renders with ScrollReveal text, TrueFocus/BlurText key phrases, and photo placeholder
 2. Projects section displays MagicBento grid of TiltedCard project cards from data file
 3. Skills section shows interactive visualization with Antigravity floating tags
@@ -57,9 +61,11 @@
 ---
 
 ### Phase 3: Detail Pages + Global Polish
+
 **Goal:** Add project detail pages with route transitions and scroll restoration, then polish the entire site for production — performance optimization, responsive fine-tuning, and accessibility validation.
 **Mode:** mvp
 **Success Criteria**:
+
 1. Project detail page renders with full case study content (metrics, creative, strategy, technical)
 2. Clicking a project card navigates to detail page with animated route transition
 3. Back navigation restores previous scroll position without replaying entrance animations
@@ -129,13 +135,25 @@
 ---
 
 ### Phase 4: Deployment & Vercel Release
+
 **Goal:** Run production build validation, configure redirect/routing configurations for client-side routing on Vercel, verify build success, and document launch guidelines.
 **Mode:** standard
 **Success Criteria**:
+
 1. Production bundle compiles cleanly via `npm run build` with no TS or linting blocks
 2. `vercel.json` exists in root with correct rewrite configurations for client-side routing
 3. Detailed deployment instructions documented for the user in `DEPLOYMENT.md`
 
+### Phase 5: Hero Section Liquid Ether Background Integration
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 4
+**Plans:** 0 plans
+
+Plans:
+
+- [ ] TBD (run /gsd-plan-phase 5 to break down)
+
 ---
 *Roadmap updated: 2026-07-11*
-
