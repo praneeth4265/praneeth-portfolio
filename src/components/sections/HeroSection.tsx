@@ -79,8 +79,8 @@ export const HeroSection: React.FC = () => {
           <React.Suspense fallback={<div className="absolute inset-0 bg-[#FAFAFF]" />}>
             <LiquidEther
               colors={['#4F46E5', '#DDE0F0', '#1E1B4B', '#9089FC']}
-              mouseForce={22}
-              cursorSize={120}
+              mouseForce={14}
+              cursorSize={60}
               resolution={0.5}
               autoDemo={true}
               autoSpeed={0.4}
