@@ -1174,6 +1174,7 @@ export type { MenuItem as InfiniteMenuItem, MenuItem };
 export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 }) => {
   const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement | null>(null) as MutableRefObject<HTMLCanvasElement | null>;
+  const [initError, setInitError] = useState<boolean>(false);
   const [activeItem, setActiveItem] = useState<MenuItem | null>(null);
   const [isMoving, setIsMoving] = useState<boolean>(false);
 
@@ -1188,14 +1189,19 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
     };
 
     if (canvas) {
-      sketch = new InfiniteGridMenu(
-        canvas,
-        items.length ? items : defaultItems,
-        handleActiveItem,
-        setIsMoving,
-        sk => sk.run(),
-        scale
-      );
+      try {
+        sketch = new InfiniteGridMenu(
+          canvas,
+          items.length ? items : defaultItems,
+          handleActiveItem,
+          setIsMoving,
+          sk => sk.run(),
+          scale
+        );
+      } catch (err) {
+        console.error('[InfiniteMenu] WebGL initialization failed:', err);
+        setInitError(true);
+      }
     }
 
     const handleResize = () => {
@@ -1223,6 +1229,15 @@ export const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], scale = 1.0 })
       navigate(activeItem.link);
     }
   };
+
+  if (initError) {
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-full text-[#6B6880] p-6 text-center font-mono bg-gradient-to-b from-[#FAFAFF] via-[#F2F3FC] to-[#FAFAFF] rounded-3xl min-h-[400px]">
+        <span className="text-sm font-bold uppercase tracking-widest text-[#4F46E5] mb-2 font-bold">WebGL Render Bypassed</span>
+        <p className="text-xs max-w-md">Your browser/device environment has disabled WebGL2 or hardware acceleration. Please use the Bento Grid view.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-full">

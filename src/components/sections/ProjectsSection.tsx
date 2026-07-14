@@ -7,7 +7,7 @@ import { TiltedCard } from '@/components/reactbits/cards/TiltedCard';
 import { InfiniteMenu } from '@/components/reactbits/cards/InfiniteMenu';
 import { projectsData } from '@/data/projects';
 import type { ProjectCategory } from '@/data/projects';
-import { ArrowUpRight, Compass, Layers, LayoutGrid, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Compass, LayoutGrid, Sparkles } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
 
 export const CATEGORY_DISPLAY_MAP: Record<ProjectCategory, string> = {
@@ -19,7 +19,42 @@ export const CATEGORY_DISPLAY_MAP: Record<ProjectCategory, string> = {
 
 export const ProjectsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | ProjectCategory>('all');
-  const [viewMode, setViewMode] = useState<'wheel' | 'bento'>('wheel');
+  
+  const [isWebGL2Supported] = useState<boolean>(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl2');
+      if (gl) {
+        const vs = gl.createShader(gl.VERTEX_SHADER);
+        if (vs) {
+          gl.shaderSource(vs, '#version 300 es\nvoid main(){}');
+          gl.compileShader(vs);
+          const success = gl.getShaderParameter(vs, gl.COMPILE_STATUS);
+          gl.deleteShader(vs);
+          return !!success;
+        }
+      }
+    } catch (e) {}
+    return false;
+  });
+
+  const [viewMode, setViewMode] = useState<'wheel' | 'bento'>(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl2');
+      if (gl) {
+        const vs = gl.createShader(gl.VERTEX_SHADER);
+        if (vs) {
+          gl.shaderSource(vs, '#version 300 es\nvoid main(){}');
+          gl.compileShader(vs);
+          const success = gl.getShaderParameter(vs, gl.COMPILE_STATUS);
+          gl.deleteShader(vs);
+          if (success) return 'wheel';
+        }
+      }
+    } catch (e) {}
+    return 'bento';
+  });
 
   const categories = [
     { id: 'all', label: 'All Work' },
@@ -44,34 +79,36 @@ export const ProjectsSection: React.FC = () => {
     }));
   }, [filteredProjects]);
 
+
   return (
-    <SectionWrapper id="projects" theme="light" withTopBorder>
-      <Container>
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2F3FC] border border-[#DDE0F0] text-[#4F46E5] text-xs font-bold uppercase tracking-wider">
-              <Layers size={14} />
-              <span>Real Briefs. Real Results.</span>
+    <SectionWrapper id="projects" theme="light">
+      <Container className="relative">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          {/* Headline & Subtitle */}
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F2F3FC] border border-[#DDE0F0] mb-4 text-[#4F46E5] text-xs font-bold font-mono">
+              <Sparkles size={12} className="animate-pulse" />
+              <span>THE PROOF-OF-CRAFT</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#09090F]">
-              Decisions that moved numbers.
+            <h2 className="text-3xl sm:text-5xl font-black text-[#09090F] tracking-tighter mb-4">
+              Rigorous execution. <br />
+              <span className="text-[#6B6880]">Unmistakable outcomes.</span>
             </h2>
-            <p className="text-base md:text-lg text-[#2D2B4A]">
-              Every project starts with a business problem. Every case study ends with a number that changed.
+            <p className="text-base sm:text-lg text-[#2D2B4A] leading-relaxed">
+              Every project is a dual testament to code-level engineer capability and growth-focused conversion strategy. No fluff, just leverage.
             </p>
           </div>
 
-          {/* Controls: Category Filter Tabs & Layout View Toggle */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full md:w-auto">
-            {/* Category Filter Tabs */}
-            <div className="flex flex-wrap gap-2">
+          {/* Filtering Tabs & View Mode Toggle */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4">
+            {/* Category Tabs */}
+            <div className="flex flex-wrap items-center gap-2 bg-[#F2F3FC] border border-[#DDE0F0] p-1 rounded-2xl shadow-sm">
               {categories.map((cat) => {
                 const isActive = activeTab === cat.id;
                 return (
                   <button
                     key={cat.id}
-                    onClick={() => setActiveTab(cat.id as 'all' | ProjectCategory)}
+                    onClick={() => setActiveTab(cat.id as any)}
                     className={`relative px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 font-mono cursor-pointer ${
                       isActive
                         ? 'text-white shadow-lg shadow-[#4F46E5]/20 bg-[#4F46E5]'
@@ -86,17 +123,19 @@ export const ProjectsSection: React.FC = () => {
 
             {/* Layout Toggle Button Group */}
             <div className="inline-flex items-center p-1 bg-[#F2F3FC] border border-[#DDE0F0] rounded-xl self-start sm:self-auto shrink-0 shadow-sm">
-              <button
-                onClick={() => setViewMode('wheel')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  viewMode === 'wheel'
-                    ? 'bg-[#4F46E5] text-white shadow-sm'
-                    : 'text-[#2D2B4A] hover:text-[#09090F]'
-                }`}
-              >
-                <Compass size={14} />
-                <span>3D Infinite Wheel</span>
-              </button>
+              {isWebGL2Supported && (
+                <button
+                  onClick={() => setViewMode('wheel')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    viewMode === 'wheel'
+                      ? 'bg-[#4F46E5] text-white shadow-sm'
+                      : 'text-[#2D2B4A] hover:text-[#09090F]'
+                  }`}
+                >
+                  <Compass size={14} />
+                  <span>3D Infinite Wheel</span>
+                </button>
+              )}
               <button
                 onClick={() => setViewMode('bento')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
