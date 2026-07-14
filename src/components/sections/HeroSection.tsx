@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Aurora } from '@/components/reactbits/backgrounds/Aurora';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { ScrambledText } from '@/components/reactbits/text/ScrambledText';
 import { RotatingText } from '@/components/reactbits/text/RotatingText';
 import { Container } from '@/components/ui/Container';
@@ -8,7 +8,26 @@ import { siteConfig } from '@/data/site-config';
 import { ArrowDown, Sparkles, Terminal } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '@/utils/animation-variants';
 
+const LiquidEther = React.lazy(() => import('@/components/reactbits/backgrounds/LiquidEther'));
+
 export const HeroSection: React.FC = () => {
+  const reducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  const showInteractiveBackground = !reducedMotion && !isMobile;
+
   const scrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const elem = document.getElementById('projects');
@@ -31,8 +50,32 @@ export const HeroSection: React.FC = () => {
       aria-label="Introduction and Overview"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-24 px-4 sm:px-6 lg:px-8"
     >
-      {/* Animated Aurora Background */}
-      <Aurora />
+      {/* Background Layer: WebGL LiquidEther or Static CSS Fallback */}
+      {showInteractiveBackground ? (
+        <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
+          <React.Suspense fallback={<div className="absolute inset-0 bg-[#FAFAFF]" />}>
+            <LiquidEther
+              colors={['#4F46E5', '#DDE0F0', '#1E1B4B', '#9089FC']}
+              mouseForce={22}
+              cursorSize={120}
+              resolution={0.5}
+              autoDemo={true}
+              autoSpeed={0.4}
+              autoIntensity={2.0}
+              autoResumeDelay={3000}
+              isBounce={false}
+              isViscous={false}
+            />
+          </React.Suspense>
+        </div>
+      ) : (
+        <div 
+          className="absolute inset-0 z-0 w-full h-full pointer-events-none bg-[#FAFAFF]"
+          style={{
+            background: 'radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.08) 0%, rgba(221, 224, 240, 0.03) 50%, transparent 100%)'
+          }}
+        />
+      )}
 
       <Container className="relative z-10 text-center max-w-4xl mx-auto">
         <motion.div

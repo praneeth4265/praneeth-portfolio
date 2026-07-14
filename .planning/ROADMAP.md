@@ -12,6 +12,7 @@
 | 2 | Content Sections + Interactivity | Complete |
 | 3 | Detail Pages + Global Polish | Complete |
 | 4 | Deployment & Vercel Release | Complete |
+| 5 | Hero Section Liquid Ether Background Integration | Complete |
 
 ---
 
@@ -149,11 +150,11 @@
 **Goal:** [To be planned]
 **Requirements**: TBD
 **Depends on:** Phase 4
-**Plans:** 0 plans
+**Plans:** 0/1 plans complete
 
 Plans:
 
-- [ ] TBD (run /gsd-plan-phase 5 to break down)
+- [x] TBD (run /gsd-plan-phase 5 to break down) (completed 2026-07-14)
 
 ---
 *Roadmap updated: 2026-07-11*
