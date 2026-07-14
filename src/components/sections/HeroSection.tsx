@@ -13,6 +13,7 @@ const LiquidEther = React.lazy(() => import('@/components/reactbits/backgrounds/
 export const HeroSection: React.FC = () => {
   const reducedMotion = useReducedMotion();
   const [isMobile, setIsMobile] = React.useState(false);
+  const [hasWebGL, setHasWebGL] = React.useState(true);
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -23,10 +24,23 @@ export const HeroSection: React.FC = () => {
     };
 
     mediaQuery.addEventListener('change', handleChange);
+    
+    // Detect WebGL support (e.g., handles Brave Shields block or disabled WebGL)
+    try {
+      const canvas = document.createElement('canvas');
+      const support = !!(
+        window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+      );
+      setHasWebGL(support);
+    } catch (e) {
+      setHasWebGL(false);
+    }
+
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  const showInteractiveBackground = !reducedMotion && !isMobile;
+  const showInteractiveBackground = !reducedMotion && !isMobile && hasWebGL;
 
   const scrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
